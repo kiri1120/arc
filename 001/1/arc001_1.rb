@@ -1,13 +1,12 @@
 #! /usr/bin/env ruby
 # coding: utf-8
 
-data = STDIN.read
-length, answers = data.split("\n")
+gets
+answers = gets.strip.split("").map(&:to_i)
 
-list = [0,0,0,0]
-
-answers.split('').each do |answer|
-  list[answer.to_i - 1] += 1
+list = [];
+(1 .. 4).each do |i|
+  list[i-1] = answers.count(i)
 end
 
 puts list.max.to_s + ' ' + list.min.to_s
